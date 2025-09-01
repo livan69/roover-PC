@@ -1,0 +1,93 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Map1
+        - /TF1
+        - /Odom1
+      Splitter Ratio: 0.5
+  - Class: rviz_common/Selection
+    Name: Selection
+  - Class: rviz_common/Views
+    Name: Views
+
+Visualization Manager:
+  Displays:
+    - Class: rviz_default_plugins/Map
+      Name: Map
+      Enabled: true
+      Topic: /map
+      Alpha: 0.7
+      Draw Behind: true
+      Value: true
+
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Cell Size: 1
+      Plane Cell Count: 20
+      Color: 160; 160; 160
+
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Enabled: true
+      Marker Scale: 1
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+
+    - Class: rviz_default_plugins/Odometry
+      Name: Odom
+      Enabled: true
+      Topic: /odom
+      Shape: Arrow
+      Axes Length: 1
+      Axes Radius: 0.1
+      Color: 255; 25; 0
+
+    - Class: rviz_default_plugins/Odometry
+      Name: GPS Odom
+      Enabled: true
+      Topic: /odometry/gps
+      Shape: Arrow
+      Axes Length: 1
+      Axes Radius: 0.1
+      Color: 25; 255; 0
+
+    - Class: rviz_default_plugins/Odometry
+      Name: Filtered Odom
+      Enabled: true
+      Topic: /odometry/filtered
+      Shape: Arrow
+      Axes Length: 1
+      Axes Radius: 0.1
+      Color: 25; 25; 255
+
+    - Class: rviz_default_plugins/MarkerArray
+      Name: GPS Fix
+      Enabled: true
+      Topic: /fix
+
+  Global Options:
+    Fixed Frame: map
+    Background Color: 48; 48; 48
+    Frame Rate: 30
+
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 50
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+      Pitch: 0.785
+      Yaw: 0.785
+      Target Frame: base_link
+
+Window Geometry:
+  Height: 1000
+  Width: 1600
+  X: 50
+  Y: 50
