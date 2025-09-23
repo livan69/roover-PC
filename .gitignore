@@ -1,0 +1,22 @@
+# ROS2 build & install
+build/
+install/
+log/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# VSCode / Visual Studio
+.vscode/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# RViz config logs
+*.rviz2
+*.db3
+*.bag
