@@ -3,6 +3,9 @@ build/
 install/
 log/
 
+# State publisher dir uitsluiten
+src/roover_state_publisher/
+
 # Python cache
 __pycache__/
 *.pyc
