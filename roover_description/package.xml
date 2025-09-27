@@ -2,7 +2,7 @@
 <package format="3">
   <name>roover_description</name>
   <version>0.0.1</version>
-  <description>URDF description of the Roover robot</description>
+  <description>URDF/Xacro description of the Roover robot</description>
   <maintainer email="livan@todo.todo">livan</maintainer>
   <license>MIT</license>
 

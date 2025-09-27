@@ -2,7 +2,6 @@ from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.substitutions import PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
-
 from ament_index_python.packages import get_package_share_directory
 import os
 import xacro
@@ -12,7 +11,7 @@ def generate_launch_description():
     urdf_path = os.path.join(
         get_package_share_directory('roover_description'),
         'urdf',
-        'roover.urdf.xacro'
+        'roover_pc.urdf.xacro'
     )
 
     # Xacro → URDF XML string
@@ -36,6 +35,13 @@ def generate_launch_description():
             output='screen'
         ),
 
+        Node(
+            package='joint_state_publisher',
+            executable='joint_state_publisher',
+            name='joint_state_publisher',
+            output='screen'
+        ),
+        
         # RViz2 openen
         Node(
             package='rviz2',

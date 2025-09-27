@@ -7,7 +7,7 @@
       <geometry>
         <box size="0.484 0.475 0.09"/> <!-- 484 x 475 x 90 mm -->
       </geometry>
-      <origin xyz="0 0 0.07" rpy="0 0 0"/> <!-- hoogte midden chassis -->
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/> <!--  midden chassis -->
       <material name="gray">
         <color rgba="0.6 0.6 0.6 1.0"/>
       </material>
@@ -16,7 +16,7 @@
       <geometry>
         <box size="0.484 0.475 0.09"/>
       </geometry>
-      <origin xyz="0 0 0.07" rpy="0 0 0"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
     </collision>
   </link>
 
@@ -26,7 +26,8 @@
       <geometry>
         <cylinder radius="0.0825" length="0.06"/> <!-- Ø165mm breedte 60mm -->
       </geometry>
-      <origin xyz="0.109 0.2375 0.0825" rpy="1.5708 0 0"/> <!-- positie afgeleid -->
+      <!--<origin xyz="0.109 0.2375 0.0825" rpy="-1.5708 0 0"/> <!- positie afgeleid -->
+      <!-- origin xyz="0. 0.03 0.0" rpy="1.5708 0 0"/> <!- positie afgeleid -->
       <material name="black">
         <color rgba="0.1 0.1 0.1 1.0"/>
       </material>
@@ -36,7 +37,7 @@
   <joint name="left_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="wheel_left"/>
-    <origin xyz="0.109 0.2375 0.0825" rpy="0 0 0"/>
+    <origin xyz="-0.15 0.2775 -0.01" rpy="-1.5708 0 0"/>
     <axis xyz="0 1 0"/> <!-- draai-as over Y -->
   </joint>
 
@@ -46,7 +47,7 @@
       <geometry>
         <cylinder radius="0.0825" length="0.06"/>
       </geometry>
-      <origin xyz="0.109 -0.2375 0.0825" rpy="1.5708 0 0"/>
+      <!--origin xyz="0. -0.03 0." rpy="1.5708 0 0"/>-->
       <material name="black"/>
     </visual>
   </link>
@@ -54,7 +55,7 @@
   <joint name="right_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="wheel_right"/>
-    <origin xyz="0.109 -0.2375 0.0825" rpy="0 0 0"/>
+    <origin xyz="-0.15 -0.2775 -0.01" rpy="1.5708 0 0"/>
     <axis xyz="0 1 0"/> <!-- draai-as over Y -->
   </joint>
 
@@ -64,7 +65,7 @@
       <geometry>
         <box size="0.15 0.10 0.05"/>
       </geometry>
-      <origin xyz="0.242 0 0.125" rpy="0 0 0"/> <!-- vooraan, gecentreerd -->
+      <origin xyz="-0.075 0.0 -0.025" rpy="0 0 0"/> <!-- vooraan, gecentreerd -->
       <material name="blue">
         <color rgba="0.1 0.1 0.8 1.0"/>
       </material>
@@ -74,7 +75,7 @@
   <joint name="front_joint" type="fixed">
     <parent link="base_link"/>
     <child link="front_block"/>
-    <origin xyz="0.3 0 0.0" rpy="0 0 0"/> <!-- positie tov base_link -->
+    <origin xyz="0.35 0 0.09" rpy="0 0 0"/> <!-- positie tov base_link -->
   </joint>
 
   <!-- Castor wiel -->
@@ -83,18 +84,17 @@
       <geometry>
         <cylinder radius="0.065" length="0.03"/> <!-- Ø130 mm, breedte 30mm -->
       </geometry>
-      <origin xyz="0.317 0 0.065" rpy="1.5708 0 0"/> <!-- onder het blokje -->
+      <origin xyz="0.0 0 0.065" rpy="1.5708 0 0"/> <!-- onder het blokje -->
       <material name="black"/>
     </visual>
   </link>
 
-  <joint name="castor_joint" type="continuous"> <!-- of 'fixed' -->
+  <joint name="castor_joint" type="fixed"> <!-- of 'fixed' -->
     <parent link="base_link"/>
     <child  link="castor_wheel"/>
-    <origin xyz="0 0 -0.05" rpy="0 0 0"/>  <!-- pas aan -->
+    <origin xyz="0.317 0 -0.07" rpy="0 0 0"/>  <!-- pas aan -->
     <axis xyz="0 0 1"/>
   </joint>
-
 
   <!-- GPS module -->
   <link name="gps_link">
@@ -102,7 +102,7 @@
       <geometry>
         <box size="0.03 0.03 0.02"/> <!-- 30 x 30 x 20 mm -->
       </geometry>
-      <origin xyz="0.317 0 0.17" rpy="0 0 0"/> <!-- vooraan, gecentreerd, bovenkant voorblokje = 170 mm -->
+      <origin xyz="0.0 0 0.01" rpy="0 0 0"/> <!-- vooraan, gecentreerd, bovenkant voorblokje = 170 mm -->
       <material name="black">
         <color rgba="0.0 0.0 0.0 1.0"/>
       </material>
@@ -113,16 +113,16 @@
   <joint name="gps_joint" type="fixed">
     <parent link="base_link"/>
     <child link="gps_link"/>
-    <origin xyz="0.317 0 0.17" rpy="0 0 0"/>
+    <origin xyz="0.25 0 0.095" rpy="0 0 0"/>
   </joint>
 
   <!-- IMU module -->
   <link name="imu_link">
     <visual>
       <geometry>
-        <box size="0.025 0.018 0.01"/> <!-- 25 x 18 x 10 mm -->
+        <box size="0.025 0.018 0.010"/> <!-- 25 x 18 x 10 mm -->
       </geometry>
-      <origin xyz="0.0 0.0 0.14" rpy="0 0 0"/> <!-- bovenop chassis (90 mm hoog, dus +0.14m) -->
+      <origin xyz="0.0 0.0 0.005" rpy="0 0 0"/> <!-- bovenop chassis (90 mm hoog, dus +0.14m) -->
       <material name="green">
         <color rgba="0.0 0.8 0.0 1.0"/>
       </material>
@@ -133,6 +133,6 @@
   <joint name="imu_joint" type="fixed">
     <parent link="base_link"/>
     <child link="imu_link"/>
-    <origin xyz="0.0 0.0 0.14" rpy="0 0 0"/>
+    <origin xyz="0 -0.1 0.17" rpy="0 0 0"/>
   </joint>
 </robot>
